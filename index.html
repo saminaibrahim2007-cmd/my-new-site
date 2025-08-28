@@ -1,328 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Assignment Writing – Get Started</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment Writing Work</title>
   <style>
-    :root { --accent: #0ea5e9; }
-    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
-    .glass { backdrop-filter: blur(10px); background: rgba(255,255,255,0.8); }
-  </style>
-  
-  <!-- Firebase (Compat for simplicity) -->
-  <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
-  <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
-  <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script>
-</head>
-<body class="bg-slate-50 text-slate-900">
-  <!-- Header -->
-  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-200">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="h-9 w-9 rounded-2xl bg-sky-500"></div>
-        <span class="font-semibold tracking-tight">Pro Assignments</span>
-      </div>
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="#features" class="hover:text-sky-600">Features</a>
-        <a href="#pricing" class="hover:text-sky-600">Fees</a>
-        <a href="#signup" class="hover:text-sky-600">Get Started</a>
-        <a href="#support" class="hover:text-sky-600">Support</a>
-      </nav>
-      <a href="#signup" class="px-4 py-2 rounded-xl bg-sky-600 text-white text-sm font-medium shadow hover:bg-sky-700">Start Work</a>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <section class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-sky-50 via-white to-indigo-50"></div>
-    <div class="max-w-6xl mx-auto px-4 py-16 md:py-24 relative">
-      <div class="grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <h1 class="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
-            Minimal • Modern • Professional
-          </h1>
-          <p class="mt-4 text-slate-600 text-lg">
-            Earn by writing assignments. Sign up, submit registration fee, get your login, and start working — all in one clean dashboard.
-          </p>
-          <div class="mt-6 flex flex-wrap gap-3">
-            <a href="#signup" class="px-5 py-3 rounded-2xl bg-sky-600 text-white font-medium shadow hover:bg-sky-700">Start Now</a>
-            <a href="#how" class="px-5 py-3 rounded-2xl border border-slate-300 font-medium hover:border-sky-500 hover:text-sky-600">How it works</a>
-          </div>
-          <div class="mt-6 text-sm text-slate-500">Registration Fee: <span class="font-semibold text-slate-700">Rs. 2,000</span></div>
-        </div>
-        <div class="glass rounded-3xl border border-slate-200 p-6 md:p-8 shadow-xl">
-          <div class="text-sm text-slate-500">Live Preview</div>
-          <div class="mt-2 text-2xl font-semibold">Your Earnings Panel</div>
-          <ul class="mt-4 space-y-3 text-sm">
-            <li class="flex items-center justify-between"><span>Total Earnings</span><span class="font-semibold">Rs. 0</span></li>
-            <li class="flex items-center justify-between"><span>Pending Assignments</span><span class="font-semibold">0</span></li>
-            <li class="flex items-center justify-between"><span>Withdrawable</span><span class="font-semibold">Rs. 0</span></li>
-          </ul>
-          <div class="mt-6 grid grid-cols-2 gap-3">
-            <button class="w-full px-4 py-2 rounded-xl border border-slate-300">Assignments</button>
-            <button class="w-full px-4 py-2 rounded-xl bg-slate-900 text-white">Withdraw</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- How it works -->
-  <section id="how" class="py-12 md:py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-xl md:text-2xl font-bold">How it works</h2>
-      <div class="mt-6 grid md:grid-cols-3 gap-6">
-        <div class="rounded-2xl border border-slate-200 p-6 bg-white">
-          <div class="text-4xl">1️⃣</div>
-          <h3 class="mt-3 font-semibold">Sign up</h3>
-          <p class="text-sm text-slate-600">Fill the form with your details and upload payment screenshot.</p>
-        </div>
-        <div class="rounded-2xl border border-slate-200 p-6 bg-white">
-          <div class="text-4xl">2️⃣</div>
-          <h3 class="mt-3 font-semibold">Verification</h3>
-          <p class="text-sm text-slate-600">Admin confirms your payment and creates your login.</p>
-        </div>
-        <div class="rounded-2xl border border-slate-200 p-6 bg-white">
-          <div class="text-4xl">3️⃣</div>
-          <h3 class="mt-3 font-semibold">Start work</h3>
-          <p class="text-sm text-slate-600">Receive assignments, submit work, track earnings & withdrawals.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Payment + Signup -->
-  <section id="signup" class="py-12 md:py-16 bg-white border-t border-slate-200">
-    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-5 gap-8">
-      <!-- Payment info -->
-      <div class="md:col-span-2">
-        <h2 class="text-xl md:text-2xl font-bold">Registration Fee – Rs. 2,000</h2>
-        <p class="mt-2 text-sm text-slate-600">Send fee to the account below and upload the screenshot in the signup form.</p>
-        <div class="mt-4 space-y-3">
-          <div class="rounded-2xl border border-slate-200 p-4">
-            <div class="text-xs uppercase tracking-wide text-slate-500">JazzCash</div>
-            <div class="flex items-center justify-between mt-1">
-              <div>
-                <div class="font-semibold" id="jazzcashNumber">03XX-XXXXXXX</div>
-                <div class="text-xs text-slate-500">Account Name: Your Name</div>
-              </div>
-              <button onclick="copyToClipboard('jazzcashNumber')" class="px-3 py-1.5 rounded-xl border border-slate-300 text-sm">Copy</button>
-            </div>
-          </div>
-          <div class="rounded-2xl border border-slate-200 p-4">
-            <div class="text-xs uppercase tracking-wide text-slate-500">EasyPaisa</div>
-            <div class="flex items-center justify-between mt-1">
-              <div>
-                <div class="font-semibold" id="easypaisaNumber">03XX-XXXXXXX</div>
-                <div class="text-xs text-slate-500">Account Name: Your Name</div>
-              </div>
-              <button onclick="copyToClipboard('easypaisaNumber')" class="px-3 py-1.5 rounded-xl border border-slate-300 text-sm">Copy</button>
-            </div>
-          </div>
-        </div>
-        <p class="mt-3 text-xs text-slate-500">Note: We will verify the payment before activating your account.</p>
-      </div>
-
-      <!-- Signup form -->
-      <div class="md:col-span-3">
-        <form id="signupForm" class="rounded-3xl border border-slate-200 p-6 bg-white shadow-sm">
-          <h3 class="text-lg font-semibold">Sign up to Start Work</h3>
-          <div class="grid md:grid-cols-2 gap-4 mt-4">
-            <div>
-              <label class="text-sm text-slate-600">Full Name</label>
-              <input required name="name" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500" placeholder="Your full name" />
-            </div>
-            <div>
-              <label class="text-sm text-slate-600">Father's Name</label>
-              <input required name="fatherName" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500" placeholder="Father name" />
-            </div>
-            <div>
-              <label class="text-sm text-slate-600">Email</label>
-              <input required name="email" type="email" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500" placeholder="you@example.com" />
-            </div>
-            <div>
-              <label class="text-sm text-slate-600">WhatsApp Number</label>
-              <input required name="whatsapp" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500" placeholder="03XX-XXXXXXX" />
-            </div>
-            <div>
-              <label class="text-sm text-slate-600">City</label>
-              <input required name="city" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500" placeholder="Karachi, Lahore…" />
-            </div>
-            <div>
-              <label class="text-sm text-slate-600">Qualification</label>
-              <input required name="qualification" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500" placeholder="BA / BSc / etc." />
-            </div>
-            <div>
-              <label class="text-sm text-slate-600">Current Job</label>
-              <input name="currentJob" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500" placeholder="(optional)" />
-            </div>
-            <div>
-              <label class="text-sm text-slate-600">Payment Screenshot</label>
-              <input required id="screenshot" type="file" accept="image/*" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2" />
-            </div>
-          </div>
-          <div class="mt-4">
-            <label class="text-sm text-slate-600">Notes (optional)</label>
-            <textarea name="notes" rows="3" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500" placeholder="Anything you want us to know…"></textarea>
-          </div>
-          <button type="submit" class="mt-5 w-full px-4 py-3 rounded-2xl bg-slate-900 text-white font-semibold shadow hover:bg-slate-800">Submit & Request Account</button>
-          <p id="formMsg" class="mt-3 text-sm text-slate-600 hidden"></p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer / Support -->
-  <footer id="support" class="py-10 border-t border-slate-200 bg-white">
-    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-6 items-center">
-      <div>
-        <div class="font-semibold">Pro Assignments</div>
-        <div class="text-sm text-slate-500">© <span id="year"></span> All rights reserved.</div>
-      </div>
-      <div class="text-sm text-slate-600">
-        For support, message us on WhatsApp:
-        <a href="https://wa.me/92XXXXXXXXXX" target="_blank" class="text-sky-600 font-medium">+92 XX XXXXXXXX</a>
-      </div>
-      <div class="text-sm text-slate-500">Admin portal will be provided in Phase 2.</div>
-    </div>
-  </footer>
-
-  <script>
-    // Copy helper
-    function copyToClipboard(elId) {
-      const text = document.getElementById(elId)?.textContent?.trim();
-      if (!text) return;
-      navigator.clipboard.writeText(text).then(() => {
-        alert('Copied: ' + text);
-      });
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9fafb;
+      margin: 0;
+      padding: 0;
+      color: #333;
     }
 
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // === Firebase Setup ===
-    // 1) Create a Firebase project: https://console.firebase.google.com
-    // 2) Enable Firestore and Storage.
-    // 3) Replace the config below, then deploy to Netlify.
-
-    const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "YOUR_AUTH_DOMAIN",
-      projectId: "YOUR_PROJECT_ID",
-      storageBucket: "YOUR_STORAGE_BUCKET",
-      messagingSenderId: "YOUR_MSG_SENDER_ID",
-      appId: "YOUR_APP_ID"
-    };
-
-    // Safety: if user hasn't filled config yet, keep form client-side only
-    let firebaseReady = Object.values(firebaseConfig).every(Boolean);
-
-    let app, db, storage;
-    if (firebaseReady) {
-      app = firebase.initializeApp(firebaseConfig);
-      db = firebase.firestore();
-      storage = firebase.storage();
+    header {
+      background: #2563eb;
+      color: white;
+      text-align: center;
+      padding: 20px;
     }
 
-    // Form handling
-    const form = document.getElementById('signupForm');
-    const msg = document.getElementById('formMsg');
-    const screenshotInput = document.getElementById('screenshot');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      // Get values
-      const data = Object.fromEntries(new FormData(form).entries());
-      const file = screenshotInput.files[0];
-
-      if (!file) { alert('Please upload payment screenshot.'); return; }
-
-      // If Firebase not configured yet, show a friendly message
-      if (!firebaseReady) {
-        msg.classList.remove('hidden');
-        msg.textContent = 'Form captured locally. Please configure Firebase in the code to enable uploads & admin verification.';
-        msg.classList.add('text-orange-600');
-        return;
-      }
-
-      try {
-        // 1) Upload screenshot
-        const safeName = (data.name || 'user').replace(/[^a-z0-9-_]+/gi, '-').toLowerCase();
-        const filePath = `payment_screenshots/${Date.now()}_${safeName}_${file.name}`;
-        const snap = await storage.ref(filePath).put(file);
-        const screenshotURL = await snap.ref.getDownloadURL();
-
-        // 2) Save registration record
-        const payload = {
-          ...data,
-          screenshotURL,
-          status: 'pending',
-          createdAt: new Date().toISOString()
-        };
-        await db.collection('registrations').add(payload);
-
-        form.reset();
-        msg.classList.remove('hidden');
-        msg.textContent = '✅ Submitted! We will verify your payment and email your login details.';
-        msg.classList.remove('text-orange-600');
-        msg.classList.add('text-green-700');
-      } catch (err) {
-        console.error(err);
-        msg.classList.remove('hidden');
-        msg.textContent = '❌ Error submitting form. Please try again.';
-        msg.classList.remove('text-green-700');
-        msg.classList.add('text-red-600');
-      }
-    });
-  </script>
-
-  <!--
-  =============================
-  IMPORTANT – FIREBASE RULES
-  =============================
-  Firestore (restrict reads, allow write for signup only – adjust later):
-
-  rules_version = '2';
-  service cloud.firestore {
-    match /databases/{database}/documents {
-      match /registrations/{docId} {
-        allow read: if false; // no public reads
-        allow create: if true; // allow signups (honeypot/recaptcha recommended)
-        allow update, delete: if false;
-      }
+    header h1 {
+      margin: 0;
     }
-  }
 
-  Storage (only allow image upload to payment_screenshots):
-
-  rules_version = '2';
-  service firebase.storage {
-    match /b/{bucket}/o {
-      match /payment_screenshots/{allPaths=**} {
-        allow read: if false;
-        allow write: if request.resource.size < 5 * 1024 * 1024 // <5MB
-                      && request.resource.contentType.matches('image/.*');
-      }
-      match /{allPaths=**} {
-        allow read, write: if false;
-      }
+    .container {
+      max-width: 600px;
+      margin: 30px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-  }
 
-  =============================
-  NEXT STEPS
-  =============================
-  • Replace JazzCash/EasyPaisa numbers.
-  • Replace WhatsApp link in footer.
-  • Create a Firebase project and paste config.
-  • Deploy to Netlify (no build needed).
-  • Phase 2: We will add Login + Dashboard + Admin Panel.
-  -->
-</body>
-</html>
+    h2 {
+      color: #2563eb;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    .payment-box {
+      background: #f3f4f6;
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 6px;
