@@ -1,4 +1,159 @@
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-storage.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment Writing Work</title>
+
+  <!-- Firebase SDK (CDN) -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-storage.js"></script>
+
+  <!-- Firebase Config & Init -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBKO6kYG_6tsYOmJv7G38n17h0Y-H-mBcI",
+      authDomain: "assigment-work-8d495.firebaseapp.com",
+      projectId: "assigment-work-8d495",
+      storageBucket: "assigment-work-8d495.firebasestorage.app",
+      messagingSenderId: "1011822501149",
+      appId: "1:1011822501149:web:6d4c6845c0b7e77ab655f4",
+      measurementId: "G-20JYDTSQP2"
+    };
+
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+    const storage = firebase.storage();
+  </script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9fafb;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background: #2563eb;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 30px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #2563eb;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    .payment-box {
+      background: #f3f4f6;
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      background: #2563eb;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Assignment Writing Work</h1>
+</header>
+
+<div class="container">
+  <h2>Signup / Payment</h2>
+
+  <!-- Signup Form -->
+  <form id="signupForm">
+    <label>Name</label>
+    <input type="text" id="name" required>
+
+    <label>Email</label>
+    <input type="email" id="email" required>
+
+    <label>WhatsApp Number</label>
+    <input type="text" id="whatsapp" required>
+
+    <label>Father's Name</label>
+    <input type="text" id="fatherName" required>
+
+    <label>City</label>
+    <input type="text" id="city" required>
+
+    <label>Qualification</label>
+    <input type="text" id="qualification" required>
+
+    <label>Current Job</label>
+    <input type="text" id="job" required>
+
+    <div class="payment-box">
+      <p>Send 2000 PKR to Easypaisa/JazzCash:</p>
+      <p><strong>Easypaisa:</strong> 0300XXXXXXX</p>
+      <p><strong>JazzCash:</strong> 0311XXXXXXX</p>
+      <label>Upload Payment Screenshot</label>
+      <input type="file" id="paymentFile" accept="image/*" required>
+    </div>
+
+    <label>Password</label>
+    <input type="password" id="password" required>
+
+    <button type="submit">Sign Up</button>
+  </form>
+</div>
+
+<script>
+  document.getElementById('signupForm').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const name
