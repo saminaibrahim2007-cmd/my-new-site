@@ -1,121 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Assignment Pro - Signup</title>
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-<!-- Firebase SDKs -->
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-storage-compat.js"></script>
-
-<script>
-// Firebase Config
-const firebaseConfig = {
-  apiKey: "AIzaSyBKO6kYG_6tsYOmJv7G38n17h0Y-H-mBcI",
-  authDomain: "assigment-work-8d495.firebaseapp.com",
-  projectId: "assigment-work-8d495",
-  storageBucket: "assigment-work-8d495.firebasestorage.app",
-  messagingSenderId: "1011822501149",
-  appId: "1:1011822501149:web:6d4c6845c0b7e77ab655f4",
-  measurementId: "G-20JYDTSQP2"
-};
-
-if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-const db = firebase.firestore();
-const storage = firebase.storage();
-</script>
-
-<style>
-/* Global Styles */
-* { box-sizing:border-box; margin:0; padding:0; }
-body { font-family:'Inter', sans-serif; background:#f4f6f8; color:#1f2937; }
-header { background: linear-gradient(90deg,#2563eb,#3b82f6); color:white; text-align:center; padding:2rem 1rem; box-shadow:0 4px 12px rgba(0,0,0,0.08); }
-header h1 { font-weight:700; font-size:1.8rem; letter-spacing:1px; }
-.container { max-width:600px; margin:3rem auto; background:white; border-radius:12px; padding:2rem 2.5rem; box-shadow:0 10px 30px rgba(0,0,0,0.08); }
-h2 { color:#1e3a8a; text-align:center; font-size:1.6rem; font-weight:600; margin-bottom:1.5rem; }
-label { display:block; margin:0.6rem 0 0.3rem; font-weight:600; font-size:0.95rem; }
-input, select { width:100%; padding:0.9rem 1rem; border:1px solid #d1d5db; border-radius:8px; margin-bottom:1rem; font-size:0.95rem; transition:border 0.2s ease, box-shadow 0.2s ease; }
-input:focus { border-color:#3b82f6; box-shadow:0 0 0 3px rgba(59,130,246,0.2); outline:none; }
-.payment-box { background:#f9fafb; border:1px solid #e5e7eb; border-radius:10px; padding:1rem 1.2rem; margin-bottom:1.5rem; font-size:0.95rem; color:#374151; }
-.payment-box p { margin:0.3rem 0; }
-button { background:#2563eb; color:white; padding:0.95rem 0; width:100%; border:none; border-radius:8px; font-size:1rem; font-weight:600; cursor:pointer; transition:background 0.3s ease, transform 0.2s ease; }
-button:hover { background:#1e40af; transform:translateY(-2px); }
-@media (max-width:640px){ .container{padding:1.5rem 1.5rem; margin:2rem 1rem;} }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assignment Writing | Registration</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage.js"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #f0f4f8, #e2e8f0);
+    }
+  </style>
 </head>
-<body>
+<body class="font-sans">
+  <div class="max-w-3xl mx-auto p-6">
+    <div class="bg-white shadow-xl rounded-2xl p-8">
+      <h1 class="text-2xl font-bold text-center mb-4">🚀 Start Your Work</h1>
+      <p class="text-center text-gray-600 mb-6">
+        To start working, please sign up and pay the registration fee of <b>2000 PKR</b>.
+      </p>
 
-<header><h1>Assignment Pro</h1></header>
+      <form id="signupForm" class="space-y-4">
+        <input class="w-full p-3 border rounded-xl" placeholder="Full Name" name="name" required />
+        <input class="w-full p-3 border rounded-xl" placeholder="Father's Name" name="fatherName" required />
+        <input type="email" class="w-full p-3 border rounded-xl" placeholder="Email" name="email" required />
+        <input class="w-full p-3 border rounded-xl" placeholder="WhatsApp Number" name="whatsapp" required />
+        <input class="w-full p-3 border rounded-xl" placeholder="City" name="city" required />
+        <input class="w-full p-3 border rounded-xl" placeholder="Qualification" name="qualification" required />
+        <input class="w-full p-3 border rounded-xl" placeholder="Current Job" name="job" required />
 
-<div class="container">
-  <h2>Register & Submit Payment</h2>
-  <form id="signupForm">
-    <label>Name</label><input type="text" id="name" required>
-    <label>Email</label><input type="email" id="email" required>
-    <label>WhatsApp Number</label><input type="text" id="whatsapp" required>
-    <label>Father's Name</label><input type="text" id="fatherName" required>
-    <label>City</label><input type="text" id="city" required>
-    <label>Qualification</label><input type="text" id="qualification" required>
-    <label>Current Job</label><input type="text" id="job" required>
+        <div class="bg-gray-50 p-4 rounded-xl">
+          <p class="font-semibold">💳 Payment Details:</p>
+          <p>Easypaisa: <b>03XXXXXXXXX</b></p>
+          <p>JazzCash: <b>03XXXXXXXXX</b></p>
+          <p class="text-sm text-gray-500">Send 2000 PKR and upload screenshot below.</p>
+        </div>
 
-    <div class="payment-box">
-      <p>Send <strong>2000 PKR</strong> to Easypaisa / JazzCash:</p>
-      <p><strong>Easypaisa:</strong> 0300XXXXXXX</p>
-      <p><strong>JazzCash:</strong> 0311XXXXXXX</p>
-      <label>Upload Payment Screenshot</label>
-      <input type="file" id="paymentFile" accept="image/*" required>
+        <input type="file" id="screenshot" class="w-full p-3 border rounded-xl" required />
+
+        <button type="submit"
+          class="w-full bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-700 transition">
+          Submit Registration
+        </button>
+      </form>
+
+      <p id="msg" class="mt-4 text-center text-sm"></p>
     </div>
+  </div>
 
-    <label>Password</label><input type="password" id="password" required>
-    <button type="submit">Sign Up</button>
-  </form>
-</div>
+  <script>
+    // TODO: Replace with your Firebase config
+    const firebaseConfig = {
+      apiKey: "YOUR_KEY",
+      authDomain: "YOUR_DOMAIN",
+      projectId: "YOUR_PROJECT",
+      storageBucket: "YOUR_BUCKET",
+      messagingSenderId: "YOUR_ID",
+      appId: "YOUR_APP_ID"
+    };
 
-<script>
-document.getElementById('signupForm').addEventListener('submit', async function(e){
-  e.preventDefault();
-  try {
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const whatsapp = document.getElementById('whatsapp').value;
-    const fatherName = document.getElementById('fatherName').value;
-    const city = document.getElementById('city').value;
-    const qualification = document.getElementById('qualification').value;
-    const job = document.getElementById('job').value;
-    const password = document.getElementById('password').value;
-    const file = document.getElementById('paymentFile').files[0];
-    if(!file) return alert("Please upload payment screenshot");
+    const app = firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const storage = firebase.storage();
 
-    // Create user
-    const userCredential = await auth.createUserWithEmailAndPassword(email, password);
-    const uid = userCredential.user.uid;
+    document.getElementById("signupForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const msg = document.getElementById("msg");
+      msg.textContent = "Uploading... please wait.";
 
-    // Upload payment screenshot
-    const storageRef = storage.ref('payments/' + uid + '_' + file.name);
-    await storageRef.put(file);
+      try {
+        const form = new FormData(e.target);
+        const file = document.getElementById("screenshot").files[0];
+        const storageRef = storage.ref("payments/" + Date.now() + "-" + file.name);
+        await storageRef.put(file);
+        const fileURL = await storageRef.getDownloadURL();
 
-    // Save user data
-    await db.collection('users').doc(uid).set({
-      name,email,whatsapp,fatherName,city,qualification,job,
-      balance:0,paymentVerified:false,paymentFileName:file.name
+        await db.collection("registrations").add({
+          name: form.get("name"),
+          fatherName: form.get("fatherName"),
+          email: form.get("email"),
+          whatsapp: form.get("whatsapp"),
+          city: form.get("city"),
+          qualification: form.get("qualification"),
+          job: form.get("job"),
+          screenshot: fileURL,
+          status: "pending",
+          createdAt: new Date()
+        });
+
+        msg.textContent = "✅ Registration submitted! We’ll verify payment and send login details via email.";
+        e.target.reset();
+      } catch (error) {
+        console.error(error);
+        msg.textContent = "❌ Error: " + error.message;
+      }
     });
-
-    alert("Signup successful! Wait for payment verification.");
-    document.getElementById('signupForm').reset();
-
-  } catch(err){
-    alert("Error: "+err.message);
-    console.error(err);
-  }
-});
-</script>
-
+  </script>
 </body>
 </html>
+
