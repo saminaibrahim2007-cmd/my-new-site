@@ -3,15 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Assignment Writing Work</title>
+  <title>Assignment Pro - Signup</title>
 
-  <!-- Firebase SDK (CDN) -->
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Firebase SDKs (CDN) -->
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-storage.js"></script>
 
-  <!-- Firebase Config & Init -->
+  <!-- Firebase Config -->
   <script>
     const firebaseConfig = {
       apiKey: "AIzaSyBKO6kYG_6tsYOmJv7G38n17h0Y-H-mBcI",
@@ -23,137 +26,165 @@
       measurementId: "G-20JYDTSQP2"
     };
 
-    if (!firebase.apps.length) {
-      firebase.initializeApp(firebaseConfig);
-    }
-
+    if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
     const db = firebase.firestore();
     const storage = firebase.storage();
   </script>
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f9fafb;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
+    /* Global Styles */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #f4f6f8; color: #1f2937; }
 
+    /* Header */
     header {
-      background: #2563eb;
+      background: linear-gradient(90deg, #2563eb, #3b82f6);
       color: white;
       text-align: center;
-      padding: 20px;
+      padding: 2rem 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
+    header h1 { font-weight: 700; font-size: 1.8rem; letter-spacing: 1px; }
 
-    header h1 {
-      margin: 0;
-    }
-
+    /* Container */
     .container {
       max-width: 600px;
-      margin: 30px auto;
+      margin: 3rem auto;
       background: white;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      padding: 2rem 2.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
 
     h2 {
-      color: #2563eb;
-      margin-bottom: 15px;
+      color: #1e3a8a;
       text-align: center;
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
     }
 
     label {
       display: block;
-      margin: 10px 0 5px;
-      font-weight: bold;
+      margin: 0.6rem 0 0.3rem;
+      font-weight: 600;
+      font-size: 0.95rem;
     }
 
     input, select {
       width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      margin-bottom: 15px;
+      padding: 0.9rem 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      transition: border 0.2s ease, box-shadow 0.2s ease;
+    }
+    input:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+      outline: none;
     }
 
     .payment-box {
-      background: #f3f4f6;
-      border: 1px solid #ccc;
-      padding: 15px;
-      border-radius: 6px;
-      margin-bottom: 15px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      color: #374151;
     }
+    .payment-box p { margin: 0.3rem 0; }
 
     button {
       background: #2563eb;
       color: white;
-      padding: 10px;
+      padding: 0.95rem 0;
       width: 100%;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
       cursor: pointer;
-      font-size: 16px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    button:hover {
+      background: #1e40af;
+      transform: translateY(-2px);
     }
 
-    button:hover {
-      background: #1d4ed8;
+    /* Small Screen Adjustments */
+    @media (max-width: 640px) {
+      .container { padding: 1.5rem 1.5rem; margin: 2rem 1rem; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Assignment Writing Work</h1>
+  <h1>Assignment Pro</h1>
 </header>
 
 <div class="container">
-  <h2>Signup / Payment</h2>
-
-  <!-- Signup Form -->
+  <h2>Register & Submit Payment</h2>
   <form id="signupForm">
-    <label>Name</label>
-    <input type="text" id="name" required>
-
-    <label>Email</label>
-    <input type="email" id="email" required>
-
-    <label>WhatsApp Number</label>
-    <input type="text" id="whatsapp" required>
-
-    <label>Father's Name</label>
-    <input type="text" id="fatherName" required>
-
-    <label>City</label>
-    <input type="text" id="city" required>
-
-    <label>Qualification</label>
-    <input type="text" id="qualification" required>
-
-    <label>Current Job</label>
-    <input type="text" id="job" required>
+    <label>Name</label><input type="text" id="name" required>
+    <label>Email</label><input type="email" id="email" required>
+    <label>WhatsApp Number</label><input type="text" id="whatsapp" required>
+    <label>Father's Name</label><input type="text" id="fatherName" required>
+    <label>City</label><input type="text" id="city" required>
+    <label>Qualification</label><input type="text" id="qualification" required>
+    <label>Current Job</label><input type="text" id="job" required>
 
     <div class="payment-box">
-      <p>Send 2000 PKR to Easypaisa/JazzCash:</p>
+      <p>Send <strong>2000 PKR</strong> to Easypaisa / JazzCash:</p>
       <p><strong>Easypaisa:</strong> 0300XXXXXXX</p>
       <p><strong>JazzCash:</strong> 0311XXXXXXX</p>
       <label>Upload Payment Screenshot</label>
       <input type="file" id="paymentFile" accept="image/*" required>
     </div>
 
-    <label>Password</label>
-    <input type="password" id="password" required>
-
+    <label>Password</label><input type="password" id="password" required>
     <button type="submit">Sign Up</button>
   </form>
 </div>
 
 <script>
-  document.getElementById('signupForm').addEventListener('submit', function(e){
-    e.preventDefault();
+document.getElementById('signupForm').addEventListener('submit', function(e){
+  e.preventDefault();
 
-    const name
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const whatsapp = document.getElementById('whatsapp').value;
+  const fatherName = document.getElementById('fatherName').value;
+  const city = document.getElementById('city').value;
+  const qualification = document.getElementById('qualification').value;
+  const job = document.getElementById('job').value;
+  const password = document.getElementById('password').value;
+  const file = document.getElementById('paymentFile').files[0];
+
+  if(!file){ alert("Please upload payment screenshot"); return; }
+
+  auth.createUserWithEmailAndPassword(email, password)
+  .then(userCredential => {
+    const uid = userCredential.user.uid;
+    const storageRef = storage.ref('payments/' + uid + '_' + file.name);
+
+    storageRef.put(file).then(() => {
+      db.collection('users').doc(uid).set({
+        name,email,whatsapp,fatherName,city,qualification,job,
+        balance:0,paymentVerified:false,paymentFileName:file.name
+      }).then(() => {
+        alert("Signup successful! Wait for payment verification.");
+        document.getElementById('signupForm').reset();
+      });
+    }).catch(err => alert("Storage Error: " + err.message));
+  })
+  .catch(err => alert("Auth Error: " + err.message));
+});
+</script>
+
+</body>
+</html>
